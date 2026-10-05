@@ -1,13 +1,14 @@
-const { suporteN1 } = require('../hendlers/suportHandlers')
+const { suporteN1 } = require('../hendlers/suportHandlers');
 
 function criar(dados){
     console.log('2 - SERVICE recebeu', dados);
     const chamado = {
-        id:1,
-        titulo:dados.titulo,
-        prioridade:dados.prioridade,
-        status:"aberto"
-    }
+        id: 1,
+        titulo: dados.titulo,
+        prioridade: dados.prioridade,
+        especialidade: dados.especialidade,
+        status: "aberto"
+    };
 
     chamado.responsavel = suporteN1(chamado);
 
@@ -15,6 +16,6 @@ function criar(dados){
     return chamado;
 }
 
-module.exports = {
-    criar
+module.exports = { 
+    criar 
 };

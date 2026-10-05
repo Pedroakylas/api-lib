@@ -1,8 +1,11 @@
+const tecnicoService = require('../services/tecnicoService')
+
 function suporteN1(chamado){
     console.log("N1 recebeu o chamado");
     if(chamado.prioridade === "normal"){
         console.log("N1 assumiu o chamado");
-        return "suporte N1 atendeu";
+        
+        return tecnicoService.buscaPorEspecialidade(chamado.especialidade),
     }
     console.log("N1 nao coonseguiu resolver")
     console.log("encaminhou para N2...")
@@ -14,7 +17,8 @@ function suporteN2(chamado){
     console.log("N2 recebeu o chamado");
     if(chamado.prioridade === "nmedia"){
         console.log("N2 assumiu o chamado");
-        return "suporte N2 atendeu";
+        
+        return tecnicoService.buscaPorEspecialidade(chamado.especialidade);
     }
     console.log("N1 nao coonseguiu resolver")
     console.log("encaminhou para ESPECIALISTA...")
@@ -24,7 +28,8 @@ function especialista(chamado){
     console.log("ESPECIALISTA recebeu o chamado");
     if(chamado.prioridade === "alta"){
         console.log("ESPECIALISTA assumiu o chamado");
-        return "suporte ESPECIALISTA atendeu";
+
+        return tecnicoService.buscaPorEspecialidade(chamado.especialidade);
     }
     
     throw new Error("Nenhum responsável econtrado!")
